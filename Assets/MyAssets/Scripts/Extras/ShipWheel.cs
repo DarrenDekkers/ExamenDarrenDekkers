@@ -20,9 +20,10 @@ public class ShipWheel : MonoBehaviour
     private EnemySpawner enemySpawner;
     private EnemySpawner enemySpawnerIsland;
 
-    [SerializeField] GameObject killField;
+    
 
-
+    [SerializeField] GameObject makeInActive;
+    [SerializeField] GameObject makeActive;
 
     void Awake()
     {
@@ -34,16 +35,9 @@ public class ShipWheel : MonoBehaviour
 
     void Update()
     {
-  /*      if (removeEnemy == true)
-        {
-            print("kill");
-           
-            killField.SetActive(true);
-            removeEnemy = false;
-            
-        } */ //Did not work
      
-    
+
+
 
 
 
@@ -59,6 +53,9 @@ public class ShipWheel : MonoBehaviour
 
             enemySpawner.onIsland = !enemySpawner.onIsland;
             enemySpawnerIsland.onIsland = !enemySpawnerIsland.onIsland;
+
+            makeInActive.SetActive(false);
+            makeActive.SetActive(true);
 
         }
     }

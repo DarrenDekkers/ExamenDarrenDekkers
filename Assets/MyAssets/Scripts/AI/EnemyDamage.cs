@@ -26,16 +26,18 @@ public class EnemyDamage : MonoBehaviour
     public int healthGoingToGUI;
 
     public GameObject wheel;
-    public GameObject wheelIsland;
+
 
     private ShipWheel shipWheel;
-    private ShipWheel shipWheelIsland;
+
 
 
 
 
     void Awake()
     {
+        wheel = GameObject.Find("Wheel");
+        shipWheel = wheel.GetComponent<ShipWheel>();
 
 
         playerTarget = GameObject.Find("Player");
@@ -60,7 +62,11 @@ public class EnemyDamage : MonoBehaviour
 
     void Update()
     {
-
+if(shipWheel.removeEnemy == true)
+{
+    shipWheel.removeEnemy = false;
+    Die();
+}
 
         healthGoingToGUI = playerHealthToBeDamaged / 30;
 

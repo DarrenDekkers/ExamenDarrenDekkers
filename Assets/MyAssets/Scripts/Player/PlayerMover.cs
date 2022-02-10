@@ -20,7 +20,7 @@ public class PlayerMover : MonoBehaviour
 
     float velocityY = 0.0f;
 
-    Vector2 currentDir = Vector2.zero;
+    public Vector2 currentDir = Vector2.zero;
     Vector2 currentDirVelocity = Vector2.zero;
 
     Vector2 currentMouseDelta = Vector2.zero;
@@ -42,6 +42,7 @@ public class PlayerMover : MonoBehaviour
     {
         UpdateMouseLook();
         UpdateMovement();
+        
     }
 
     void UpdateMouseLook()
@@ -83,4 +84,9 @@ public class PlayerMover : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
     }
 
+   
 }
+
+   
+
+

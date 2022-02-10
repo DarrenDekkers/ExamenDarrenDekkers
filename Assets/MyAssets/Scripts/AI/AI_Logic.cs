@@ -33,7 +33,7 @@ public class AI_Logic : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        
+
         getNavigationInfo = FindObjectOfType<AI_WaypointNavigation>();
         player = GameObject.Find("Player");
         playerT = player.transform;
@@ -59,17 +59,19 @@ public class AI_Logic : MonoBehaviour
         {
 
             transform.LookAt(playerT);
-            print("looking");
+
         }
     }
     void Update()
     {
 
+        //getAgent.SetDestination(playerT.position);
+        Debug.DrawLine(transform.position, playerT.position, Color.red);
 
 
 
 
-        
+
         if (getAgent.remainingDistance <= distanceToWaypoint)
         {
 
