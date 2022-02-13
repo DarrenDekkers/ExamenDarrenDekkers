@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
 
 
 public class EnemyDamage : MonoBehaviour
@@ -9,26 +9,15 @@ public class EnemyDamage : MonoBehaviour
     public GameObject playerTarget;
 
 
-    public Collider coll;
-    [SerializeField] int enemyDamage;
+    public int enemyDamage = 1;
+
+    public int health = 50;
 
 
-
-    public bool doingDamage = false;
-
-    public int hearts = 2;
-
-    public int originalHealth = 50;
-    public int health;
-
-    public int playerHealthToBeDamaged;
     private PlayerLife playerLife;
-    public int healthGoingToGUI;
-
-    public GameObject wheel;
 
 
-    private ShipWheel shipWheel;
+    
 
 
 
@@ -36,40 +25,21 @@ public class EnemyDamage : MonoBehaviour
 
     void Awake()
     {
-        wheel = GameObject.Find("Wheel");
-        shipWheel = wheel.GetComponent<ShipWheel>();
 
+       
 
         playerTarget = GameObject.Find("Player");
 
 
-
-        health = originalHealth;
         playerLife = playerTarget.GetComponent<PlayerLife>();
-
-
-
-        playerHealthToBeDamaged = health;
-        healthGoingToGUI = playerHealthToBeDamaged / 30;
-
-
-
-
-
-
 
     }
 
     void Update()
     {
-if(shipWheel.removeEnemy == true)
-{
-    shipWheel.removeEnemy = false;
-    Die();
-}
 
-        healthGoingToGUI = playerHealthToBeDamaged / 30;
 
+        //Enemy dies
         if (health <= 0)
         {
             if (gameObject.tag != "Player")
@@ -81,69 +51,22 @@ if(shipWheel.removeEnemy == true)
 
         }
 
-        if (coll.enabled == false)
-        {
-            coll.enabled = true;
-        }
-
-        if (doingDamage == true)
-        {
-
-            PlayerGUIManager.Gui_Instance.UpdateHeart(healthGoingToGUI, hearts);
-            doingDamage = false;
-
-        }
-
-
-
-
-
     }
-
-
-
 
     void OnTriggerStay(Collider col)
     {
 
-
-
-
-
-        if (col.tag != "Player")
+        if (col.tag == "Player")
         {
 
-            return;
-        }
-        else
-        {
+            playerLife.PlayerDamage(enemyDamage);
 
-            playerHealthToBeDamaged -= enemyDamage;
-            doingDamage = true;
-
-            if ((playerHealthToBeDamaged <= 0) && PlayerGUIManager.Gui_Instance.howMuchLife == -2)
-            {
-                SceneManager.LoadScene("SampleScene");
-            }
-            else
-            {
-                if (playerHealthToBeDamaged <= 0)
-                {
-                    PlayerGUIManager.Gui_Instance.howMuchLife -= 1;
-                    playerHealthToBeDamaged = playerLife.playerHealth;
-                    playerLife.playerCurrentHealth = playerLife.playerHealth;
-
-
-                }
-
-            }
         }
 
     }
 
 
-
-    void Die()
+ public void Die()
     {
         Destroy(gameObject);
     }

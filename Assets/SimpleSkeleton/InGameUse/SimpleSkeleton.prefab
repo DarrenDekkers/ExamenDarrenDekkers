@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 3465740915765696269}
   m_Layer: 0
   m_Name: SimpleSkeleton
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -243,16 +243,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTarget: {fileID: 0}
-  coll: {fileID: 7217758908850961990}
   enemyDamage: 1
-  doingDamage: 0
-  hearts: 2
-  originalHealth: 50
   health: 50
-  playerHealthToBeDamaged: 0
-  healthGoingToGUI: 0
-  wheel: {fileID: 0}
-  wheelIsland: {fileID: 0}
 --- !u!82 &3465740915765696269
 AudioSource:
   m_ObjectHideFlags: 0

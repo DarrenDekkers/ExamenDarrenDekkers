@@ -12,7 +12,7 @@ public class ShipWheel : MonoBehaviour
     public GameObject thePlayer;
     [SerializeField] bool playerIn = false;
     public CharacterController playerController;
-    public bool removeEnemy = false;
+
 
     public GameObject spawnLocation;
     public GameObject spawnLocationIsland;
@@ -20,7 +20,10 @@ public class ShipWheel : MonoBehaviour
     private EnemySpawner enemySpawner;
     private EnemySpawner enemySpawnerIsland;
 
-    
+    EnemyDamage enemyDamage;
+    GameObject[] enemies;
+
+
 
     [SerializeField] GameObject makeInActive;
     [SerializeField] GameObject makeActive;
@@ -35,18 +38,13 @@ public class ShipWheel : MonoBehaviour
 
     void Update()
     {
-     
-
-
-
-
-
-
 
         if (playerIn == true && Input.GetKeyDown("e"))
         {
 
-            removeEnemy = true;
+            enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+
             playerController.enabled = false;
 
             thePlayer.transform.position = teleportTarget.transform.position;
@@ -56,21 +54,21 @@ public class ShipWheel : MonoBehaviour
 
             makeInActive.SetActive(false);
             makeActive.SetActive(true);
-
+            foreach (GameObject enemy in enemies)
+            {
+                enemyDamage = enemy.GetComponent<EnemyDamage>();
+                enemyDamage.Die();
+            }
         }
     }
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.tag != "Player")
+        if (col.tag == "Player")
         {
-            return;
+            playerIn = true;
+            SetString(textSpace, "Press 'e' to sail away");
         }
-
-        playerIn = true;
-        SetString(textSpace, "Press 'e' to sail away");
-
-
 
     }
 

@@ -1191,7 +1191,7 @@ Transform:
   m_Children:
   - {fileID: 458970795}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &80055345 stripped
 GameObject:
@@ -1217,6 +1217,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: 120
   playerCurrentHealth: 0
+  healthGoingToGUI: 0
+  doingDamage: 0
+  hearts: 2
+  enemy: {fileID: 234900515}
 --- !u!143 &80055349
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1425,7 +1429,7 @@ Transform:
   - {fileID: 147814639}
   - {fileID: 1422430570}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &104327709 stripped
 Transform:
@@ -1481,7 +1485,7 @@ Transform:
   - {fileID: 1969336059}
   - {fileID: 883080254}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &114498223
 PrefabInstance:
@@ -2742,6 +2746,72 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a4c3ddf4293b1043bcc4de5976ecea4, type: 3}
+--- !u!1001 &224854554
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 486568048564285634, guid: d694f0dd489138c428baa210c1d691fe, type: 3}
+      propertyPath: m_Name
+      value: SimpleSkeleton
+      objectReference: {fileID: 0}
+    - target: {fileID: 3502668936572060369, guid: d694f0dd489138c428baa210c1d691fe, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3502668936572060369, guid: d694f0dd489138c428baa210c1d691fe, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.032702
+      objectReference: {fileID: 0}
+    - target: {fileID: 3502668936572060369, guid: d694f0dd489138c428baa210c1d691fe, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.8174584
+      objectReference: {fileID: 0}
+    - target: {fileID: 3502668936572060369, guid: d694f0dd489138c428baa210c1d691fe, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -13.453115
+      objectReference: {fileID: 0}
+    - target: {fileID: 3502668936572060369, guid: d694f0dd489138c428baa210c1d691fe, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3502668936572060369, guid: d694f0dd489138c428baa210c1d691fe, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3502668936572060369, guid: d694f0dd489138c428baa210c1d691fe, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3502668936572060369, guid: d694f0dd489138c428baa210c1d691fe, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3502668936572060369, guid: d694f0dd489138c428baa210c1d691fe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3502668936572060369, guid: d694f0dd489138c428baa210c1d691fe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3502668936572060369, guid: d694f0dd489138c428baa210c1d691fe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7217758908850961991, guid: d694f0dd489138c428baa210c1d691fe, type: 3}
+      propertyPath: playerTarget
+      value: 
+      objectReference: {fileID: 80055345}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d694f0dd489138c428baa210c1d691fe, type: 3}
+--- !u!1 &234900515 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 486568048564285634, guid: d694f0dd489138c428baa210c1d691fe, type: 3}
+  m_PrefabInstance: {fileID: 224854554}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &243083060
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2995,7 +3065,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &250922343 stripped
 Transform:
@@ -3646,7 +3716,7 @@ Transform:
   - {fileID: 689814857}
   - {fileID: 183511924}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &369760919
 PrefabInstance:
@@ -4133,7 +4203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e81cd2fe303f0c4ea738955bf287368, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 100
+  damage: 20
   range: 2
   fireRate: 15
   ShotStart: {fileID: 1904900189}
@@ -8508,7 +8578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3617f42fc3319ea4abaf5fd2f7974b8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPlace: {x: 1.030886, y: 3.5175, z: -11.83477}
+  spawnPlace: {x: -13.18801, y: -6.922823, z: -27.56642}
   onIsland: 0
   enemyPrefab: {fileID: 486568048564285634, guid: d694f0dd489138c428baa210c1d691fe, type: 3}
 --- !u!4 &736051790
@@ -10107,7 +10177,6 @@ MonoBehaviour:
   thePlayer: {fileID: 80055345}
   playerIn: 0
   playerController: {fileID: 80055349}
-  removeEnemy: 0
   spawnLocation: {fileID: 736051788}
   spawnLocationIsland: {fileID: 1418233266}
   makeInActive: {fileID: 0}
@@ -12569,7 +12638,7 @@ Transform:
   - {fileID: 799077839}
   - {fileID: 705507995}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1169058071 stripped
 Transform:
@@ -17017,7 +17086,7 @@ Transform:
   - {fileID: 736051790}
   - {fileID: 1418233268}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1778649382
 PrefabInstance:
@@ -18407,7 +18476,6 @@ MonoBehaviour:
   thePlayer: {fileID: 80055345}
   playerIn: 0
   playerController: {fileID: 80055349}
-  removeEnemy: 0
   spawnLocation: {fileID: 736051788}
   spawnLocationIsland: {fileID: 1418233266}
   makeInActive: {fileID: 1519245223}

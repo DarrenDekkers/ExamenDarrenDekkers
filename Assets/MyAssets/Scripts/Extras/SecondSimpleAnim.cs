@@ -9,7 +9,7 @@ public class SecondSimpleAnim : MonoBehaviour
 {
     public AudioSource soundPlayer;
     public AudioClip clip;
-   
+
     [SerializeField] GameObject makeActive;
     [SerializeField] GameObject makeActive2;
 
@@ -17,6 +17,8 @@ public class SecondSimpleAnim : MonoBehaviour
 
     [SerializeField] TMP_Text textSpace;
     [SerializeField] string text;
+
+    SphereCollider sphereCollider;
 
 
 
@@ -33,8 +35,8 @@ public class SecondSimpleAnim : MonoBehaviour
 
             makeInActive.SetActive(false);
 
-            
-          
+            SphereCollider sphereCollider = transform.GetComponent<SphereCollider>();
+            sphereCollider.radius = 9f;
 
             SetString(textSpace, text);
 
@@ -48,11 +50,17 @@ public class SecondSimpleAnim : MonoBehaviour
                 makeActive2.SetActive(true);
             }
 
+
+
         }
 
     }
 
+void OnTriggerExit()
 
+{
+    SetString(textSpace, null);
+}
 
     void PlayClip(AudioClip clip)
     {
@@ -60,11 +68,11 @@ public class SecondSimpleAnim : MonoBehaviour
 
     }
 
+
     void SetString(TMP_Text setText, string getText)
     {
 
         setText.SetText(getText);
 
     }
-
 }
